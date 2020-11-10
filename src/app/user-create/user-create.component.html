@@ -1,0 +1,79 @@
+
+
+<div class="modal-header" style="height:58px;padding:15px;">
+    Add USer Data
+</div>
+
+<!-- <div class="modal-body" style="padding: 0px;height: 400px;overflow-y: auto;">
+        <div class="form-group">
+                <label> Full Name</label>
+                 <input
+                 style="width: 50%"
+                type="text"
+                id = "userName"
+                class="form-control"
+                name="userName"
+                required/>
+        </div>
+        <div class="form-group">
+                <label> DOB</label>
+                 <!-- <p-calendar inputId="basic" [(ngModel)]="date1"></p-calendar>  
+        </div>
+        <div class="form-group">
+                <label> Select Multiple Languages</label>
+                <!-- <p-multiSelect [options]="languages" [(ngModel)]="selectedLanguages" defaultLabel="Select Languages" optionLabel="name"></p-multiSelect> 
+        </div>
+        <p-button label="Create New User" ></p-button>
+        <p-radioButton name="city" value="Chicago" [(ngModel)]="genders" inputId="city1"></p-radioButton>
+</div> -->
+
+
+<form class="padding-30" #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
+
+        
+        <div class="form-group">
+            <label for="offerName">User Name<span class="label-required">*</span></label>
+            <div>
+                <input type="text" id="offerName" class="form-control" ngModel required name="userNameValue">
+            </div>
+        </div>
+
+    
+        <div class="form-group">
+            <label for="languages"> Select Multiple Languages<span class="label-required">*</span></label>
+            <div>
+            <p-multiSelect [options]="languagesData" ngModel required name="languages" defaultLabel="Select Languages" optionLabel="name"></p-multiSelect>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+                <label for="languages"> Date Of Birth <span class="label-required">*</span></label>
+            <div class="col-3">
+                <p-calendar icon="fa fa-calendar"   dateformat="mm/dd/yy" ngModel required name="dob" ></p-calendar>
+            </div>
+        </div>
+
+
+     <div class="form-group row">
+                <label for="languages"> Select Gender<span class="label-required">*</span></label>
+            <div class="col-3" style="display: flex">
+                    <div class="p-field-radiobutton">
+                            <p-radioButton name="city" [(ngModel)]="city" value="Male"  inputId="city1"></p-radioButton>
+                            Male
+                    </div>
+                    <div class="p-field-radiobutton">
+                            <p-radioButton name="city" [(ngModel)]="city" value="Female"  inputId="city2"></p-radioButton>
+                            Female
+                    </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="about">About</label>
+            <textarea rows="5" cols="30" class="form-control" name="about" required ngModel
+                [ngModelOptions]="{standalone: true}" pInputTextarea autoResize="autoResize"></textarea>
+        </div>
+    
+        <p-button class="btn btn -primary" type="Submit" [disabled]="!createForm.valid">Submit</p-button>
+        <span *ngIf = "createForm.valid && createForm.touched" >Please enter required Fields</span>
+</form> 

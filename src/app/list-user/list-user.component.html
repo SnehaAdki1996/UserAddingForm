@@ -1,0 +1,78 @@
+
+<!-- 
+<p-table>
+    <ng-template pTemplate="header">
+
+    </ng-template>
+    <ng-template pTemplate="body" let-record>
+
+    </ng-template>
+</p-table> -->
+<p-button label="Create New User" (click)="createUser()"></p-button>
+<div style="display: flex; padding-top: 5px">
+        
+        <table class="table table-width" style="padding-right: 2px;">
+                <th class="width">
+                    Name
+                </th>
+                <th class="width">
+                    Birth Day
+                </th>
+                <th class="width">
+                    Languages
+                </th>
+                <th class="width">
+                    Gender
+                </th>
+                <tr *ngFor="let data of userData">
+                <td>
+                    {{data.userName}}
+                </td>
+                
+                <td>
+                    {{data.DOB | date}}
+                </td>
+                
+                <td>
+                    <span  *ngFor = "let lan of data.languages">
+                            {{lan}}
+                    </span>
+                </td>
+            
+                
+                <td>
+                    {{data.gender}}
+                </td>
+                </tr>
+            </table>
+
+            
+            <div style="float: right;width: 450px;
+                        background-color: lightgray;
+                        border: 2px solid gray;">
+            <!-- <div class="row"> -->
+                    <!-- <div class="col align-self-start">
+                      One of three columns
+                    </div>
+                     -->
+                <div class="card" style="width: 300px; top:150px;display: flex">
+                    <p-progressBar [value]="value" [style]="{'height': '20px'}"></p-progressBar>    
+                  
+                </div>
+                <div class="text-center fw-500 font-style" style="margin-top:250px">
+                 Female 
+                 <div class="text-center fw-500 font-style">
+                        {{femaleCount}}
+                 </div> 
+                </div>
+                <div class="text-center fw-500 font-style" style="margin-top:70px">
+                Male
+                </div>
+                <div class="text-center fw-500 font-style">
+                        {{maleCount}}
+                </div>
+                
+
+            </div>
+        </div>
+        
